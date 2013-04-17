@@ -9,24 +9,35 @@ la 11ème ligne (dui devient la 1ère) contient l'intitulé des colonnes. Le tab
 chaque ligne correspond à une semaine, la 1ère ccolonne contient la date (au format aaaa/mm/jj), les colonnes suivantes
 les pays (1 pays par colonne).
 
-```{r}
-flu<-read.table("http://www.google.org/flutrends/data.txt",skip=10,header=TRUE,sep=",")
+
+```r
+flu <- read.table("http://www.google.org/flutrends/data.txt", skip = 10, header = TRUE, 
+    sep = ",")
 ```
+
 
 on constitue un dataframe de 2 colonnes: date + infos correspondant à la france:
 
-```{r}
-f<-data.frame(flu$Date,flu$France)
+
+```r
+f <- data.frame(flu$Date, flu$France)
 ```
+
 
 on crée un objet ts en indiquant la date du premier enregistrement de la série (décembtre 2002) et le nombre annuel de 
 mesures (en moyenne 53 semaines):
 
-```{r}
-flutime<-ts(f,start=c(2002,12),frequency=53)
+
+```r
+flutime <- ts(f, start = c(2002, 12), frequency = 53)
 ```
 
+
 on dessine la courbe:
-```{r}
-plot(flutime[,2],main="Cas de grippe", ylab="Nombre de cas", xlab="France")
+
+```r
+plot(flutime[, 2], main = "Cas de grippe", ylab = "Nombre de cas", xlab = "France")
 ```
+
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
+
