@@ -1,4 +1,8 @@
 suivi de l'activité "grippe" en France
+======================================
+
+autre source: https://www.grippenet.fr/fr/
+
 Google publie chaque semaine le nombre de fois où quelqu'un a cherhé le mot grippe sur le moteur de recherche
 google durant la seaine écoulée. Ce nombre est parfaitement corrélé avec l'épidémie de grippe. Google maintient
 un fichier .csv contenant ces informations hebdomadaires depuis 2002 por une cinquantaine de pays dont leFrance.
