@@ -3,8 +3,8 @@ suivi de l'activité "grippe" en France
 
 autre source: https://www.grippenet.fr/fr/
 
-Google publie chaque semaine le nombre de fois où quelqu'un a cherhé le mot grippe sur le moteur de recherche
-google durant la seaine écoulée. Ce nombre est parfaitement corrélé avec l'épidémie de grippe. Google maintient
+Google publie chaque semaine le nombre de fois où quelqu'un a cherché le mot __grippe__ sur le moteur de recherche
+google durant la semaine écoulée. Ce nombre est parfaitement corrélé avec l'épidémie de grippe. Google maintient
 un fichier .csv contenant ces informations hebdomadaires depuis 2002 por une cinquantaine de pays dont leFrance.
 Principe: on récupère le fichier dans R puis on trace la courbe épidémique en utilisant le package ts (time series)
 
@@ -14,14 +14,22 @@ chaque ligne correspond à une semaine, la 1ère ccolonne contient la date (au f
 les pays (1 pays par colonne).
 
 ```{r}
+<<<<<<< HEAD
 flu<-read.table("http://www.google.org/flutrends/about/data/flu/fr/data.txt",skip=10,header=TRUE,sep=",")
 write.csv(flu, file = "flu.csv")
+=======
+flu<-read.table("http://www.google.org/flutrends/data.txt",skip=10,header=TRUE,sep=",")
+
+>>>>>>> b57a6a3d8ec7a08ec1d688c46a803324c6ef6fc1
 ```
 
 on constitue un dataframe de 2 colonnes: date + infos correspondant à la france:
 
 ```{r}
 f<-data.frame(flu$Date,flu$France)
+# enregistre le dernier fichier consulté
+file <- paste0("last_flu_file", Sys.Date(), ".Rda")
+save(f, file=file)
 ```
 
 on crée un objet ts en indiquant la date du premier enregistrement de la série (décembtre 2002) et le nombre annuel de 
