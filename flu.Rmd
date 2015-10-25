@@ -14,7 +14,8 @@ chaque ligne correspond à une semaine, la 1ère ccolonne contient la date (au f
 les pays (1 pays par colonne).
 
 ```{r}
-flu<-read.table("http://www.google.org/flutrends/data.txt",skip=10,header=TRUE,sep=",")
+flu<-read.table("http://www.google.org/flutrends/about/data/flu/fr/data.txt",skip=10,header=TRUE,sep=",")
+write.csv(flu, file = "flu.csv")
 ```
 
 on constitue un dataframe de 2 colonnes: date + infos correspondant à la france:
